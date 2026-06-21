@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ТеплоФасад | Утепление фасадов под ключ</title>
+    <meta
+      name="description"
+      content="ТеплоФасад: утепление и отделка фасадов под ключ. Бригадиры, материалы, расчет стоимости по квадратуре и выбранному материалу."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23596b3f'/%3E%3Cpath d='M12 31 32 13l20 18' fill='none' stroke='%23fffdf8' stroke-width='6' stroke-linecap='square'/%3E%3Cpath d='M19 29v22h26V29' fill='none' stroke='%23fffdf8' stroke-width='6'/%3E%3Cpath d='M26 51V37h12v14' fill='%23d96f32'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --charcoal: #20231f;
+        --graphite: #343830;
+        --moss: #596b3f;
+        --leaf: #80945f;
+        --heat: #d96f32;
+        --clay: #b64f2d;
+        --paper: #f7f3ea;
+        --white: #fffdf8;
+        --line: rgba(32, 35, 31, 0.16);
+        --shadow: 0 24px 70px rgba(32, 35, 31, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--charcoal);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: var(--paper);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      .page {
+        overflow: hidden;
+      }
+
+      .hero {
+        min-height: 92vh;
+        position: relative;
+        display: grid;
+        align-items: end;
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(20, 22, 19, 0.82), rgba(20, 22, 19, 0.32)),
+          url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1800&q=80")
+            center / cover;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 26vh;
+        background: linear-gradient(180deg, rgba(247, 243, 234, 0), var(--paper));
+        pointer-events: none;
+      }
+
+      .nav {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+        padding: 24px clamp(18px, 5vw, 70px);
+      }
+
+      .brand {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 850;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 2px solid rgba(255, 253, 248, 0.72);
+        background: rgba(255, 253, 248, 0.14);
+      }
+
+      .brand-mark svg {
+        width: 25px;
+        height: 25px;
+      }
+
+      .nav-links {
+        min-width: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 253, 248, 0.84);
+        font-size: 15px;
+      }
+
+      .nav-links a {
+        white-space: nowrap;
+      }
+
+      .nav-cta,
+      .button {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 0;
+        background: var(--heat);
+        color: var(--white);
+        font-weight: 750;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .nav-cta:hover,
+      .button:hover {
+        transform: translateY(-2px);
+        background: var(--clay);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: min(1160px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 140px 0 17vh;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: #f2c496;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 840px;
+        margin-bottom: 22px;
+        font-size: clamp(44px, 7vw, 84px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .hero-text {
+        max-width: 670px;
+        margin-bottom: 32px;
+        color: rgba(255, 253, 248, 0.88);
+        font-size: clamp(18px, 2vw, 22px);
+        line-height: 1.5;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .button.secondary {
+        background: rgba(255, 253, 248, 0.13);
+        border: 1px solid rgba(255, 253, 248, 0.34);
+      }
+
+      .section {
+        padding: 86px clamp(18px, 5vw, 70px);
+      }
+
+      .section-inner {
+        width: min(1160px, 100%);
+        margin: 0 auto;
+      }
+
+      .section-title {
+        max-width: 760px;
+        margin-bottom: 34px;
+      }
+
+      .section-title h2 {
+        margin-bottom: 14px;
+        font-size: clamp(32px, 4vw, 52px);
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      .section-title p {
+        color: rgba(32, 35, 31, 0.72);
+        font-size: 18px;
+        line-height: 1.65;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 42px;
+        align-items: center;
+      }
+
+      .about-photo {
+        min-height: 460px;
+        background:
+          linear-gradient(180deg, rgba(32, 35, 31, 0), rgba(32, 35, 31, 0.18)),
+          url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80")
+            center / cover;
+        box-shadow: var(--shadow);
+      }
+
+      .about-copy {
+        font-size: 18px;
+        line-height: 1.74;
+        color: rgba(32, 35, 31, 0.76);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .stat {
+        border-top: 3px solid var(--heat);
+        padding-top: 14px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 30px;
+        color: var(--charcoal);
+      }
+
+      .stat span {
+        color: rgba(32, 35, 31, 0.62);
+        font-size: 14px;
+      }
+
+      .why {
+        background: var(--charcoal);
+        color: var(--white);
+      }
+
+      .why .section-title p {
+        color: rgba(255, 253, 248, 0.72);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .feature {
+        min-height: 230px;
+        padding: 26px;
+        border: 1px solid rgba(255, 253, 248, 0.16);
+        background: rgba(255, 253, 248, 0.06);
+      }
+
+      .feature-icon {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 22px;
+        background: var(--heat);
+      }
+
+      .feature-icon svg {
+        width: 25px;
+        height: 25px;
+      }
+
+      .feature h3 {
+        margin-bottom: 10px;
+        font-size: 21px;
+      }
+
+      .feature p {
+        margin-bottom: 0;
+        color: rgba(255, 253, 248, 0.72);
+        line-height: 1.55;
+      }
+
+      .calculator-band {
+        background: var(--white);
+      }
+
+      .calculator {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 38px;
+        align-items: start;
+      }
+
+      .calc-panel,
+      .result-panel {
+        border: 1px solid var(--line);
+        background: #fffaf0;
+        box-shadow: 0 18px 50px rgba(32, 35, 31, 0.08);
+      }
+
+      .calc-panel {
+        padding: 28px;
+      }
+
+      .field {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: 760;
+      }
+
+      input,
+      select {
+        width: 100%;
+        min-height: 52px;
+        border: 1px solid rgba(32, 35, 31, 0.2);
+        background: var(--white);
+        color: var(--charcoal);
+        padding: 0 14px;
+        outline: none;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--heat);
+        box-shadow: 0 0 0 4px rgba(217, 111, 50, 0.16);
+      }
+
+      .checkbox-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin: 22px 0;
+        color: rgba(32, 35, 31, 0.75);
+        line-height: 1.45;
+      }
+
+      .checkbox-row input {
+        width: 20px;
+        min-height: 20px;
+        margin-top: 2px;
+        accent-color: var(--heat);
+      }
+
+      .option-group {
+        display: grid;
+        gap: 12px;
+        margin: 22px 0;
+      }
+
+      .option-group .checkbox-row {
+        margin: 0;
+      }
+
+      .result-panel {
+        padding: 34px;
+        background:
+          linear-gradient(135deg, rgba(89, 107, 63, 0.12), rgba(217, 111, 50, 0.08)),
+          #fffdf8;
+      }
+
+      .result-total {
+        margin-bottom: 8px;
+        font-size: clamp(38px, 6vw, 64px);
+        font-weight: 900;
+        line-height: 1;
+        color: var(--moss);
+      }
+
+      .result-note {
+        margin-bottom: 26px;
+        color: rgba(32, 35, 31, 0.66);
+      }
+
+      .breakdown {
+        display: grid;
+        gap: 12px;
+        margin: 0 0 24px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .breakdown li {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 12px;
+      }
+
+      .breakdown span:first-child {
+        color: rgba(32, 35, 31, 0.66);
+      }
+
+      .materials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 30px;
+      }
+
+      .material {
+        border-left: 4px solid var(--leaf);
+        padding: 16px 16px 18px;
+        background: rgba(255, 253, 248, 0.68);
+      }
+
+      .material strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .material span {
+        color: rgba(32, 35, 31, 0.68);
+        line-height: 1.5;
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .step {
+        position: relative;
+        padding: 26px 22px;
+        border-top: 3px solid var(--heat);
+        background: rgba(255, 253, 248, 0.62);
+      }
+
+      .step b {
+        display: block;
+        margin-bottom: 16px;
+        color: var(--heat);
+        font-size: 14px;
+      }
+
+      .step h3 {
+        margin-bottom: 10px;
+        font-size: 21px;
+      }
+
+      .step p {
+        margin-bottom: 0;
+        color: rgba(32, 35, 31, 0.68);
+        line-height: 1.52;
+      }
+
+      .cta {
+        background: var(--moss);
+        color: var(--white);
+      }
+
+      .cta-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .cta h2 {
+        margin-bottom: 12px;
+        font-size: clamp(32px, 4vw, 52px);
+        line-height: 1.08;
+      }
+
+      .cta p {
+        max-width: 720px;
+        margin-bottom: 0;
+        color: rgba(255, 253, 248, 0.76);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      footer {
+        padding: 34px clamp(18px, 5vw, 70px);
+        background: #181a16;
+        color: rgba(255, 253, 248, 0.7);
+      }
+
+      .footer-inner {
+        width: min(1160px, 100%);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 950px) {
+        .nav {
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          max-width: 330px;
+          gap: 8px 14px;
+          justify-content: flex-end;
+          font-size: 14px;
+        }
+
+        .about-grid,
+        .calculator,
+        .cta-row {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-grid,
+        .process {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .materials {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          min-height: 86vh;
+        }
+
+        .nav {
+          padding: 18px;
+        }
+
+        .brand span {
+          font-size: 15px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .nav-cta {
+          display: none;
+        }
+
+        .hero-content {
+          padding: 118px 0 15vh;
+        }
+
+        .section {
+          padding: 62px 18px;
+        }
+
+        .about-photo {
+          min-height: 320px;
+        }
+
+        .stats,
+        .feature-grid,
+        .process {
+          grid-template-columns: 1fr;
+        }
+
+        .calc-panel,
+        .result-panel {
+          padding: 22px;
+        }
+
+        .breakdown li {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero" id="top">
+        <nav class="nav" aria-label="Главная навигация">
+          <a class="brand" href="#top" aria-label="ТеплоФасад">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="2" />
+                <path d="M7 10.5V20h10v-9.5" stroke="currentColor" stroke-width="2" />
+                <path d="M10 20v-6h4v6" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </span>
+            <span>ТеплоФасад</span>
+          </a>
+          <div class="nav-links">
+            <a href="#about">О нас</a>
+            <a href="#why">Почему мы</a>
+            <a href="#calculator">Калькулятор</a>
+            <a href="#process">Под ключ</a>
+          </div>
+          <a class="nav-cta" href="#calculator">Рассчитать</a>
+        </nav>
+
+        <div class="hero-content">
+          <p class="eyebrow">Утепление фасадов в Казахстане</p>
+          <h1>ТеплоФасад под ключ</h1>
+          <p class="hero-text">
+            Утепляем и облицовываем дома так, чтобы фасад выглядел дорого,
+            держал тепло зимой и спокойно переживал сезон за сезоном.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#calculator">Посчитать стоимость</a>
+            <a class="button secondary" href="#process">Что входит в работу</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section" id="about">
+          <div class="section-inner about-grid">
+            <div>
+              <div class="section-title">
+                <p class="eyebrow">О компании</p>
+                <h2>Фасад, который сохраняет тепло и выглядит завершенно</h2>
+              </div>
+              <div class="about-copy">
+                <p>
+                  Мы занимаемся теплофасадами для частных домов и коммерческих
+                  объектов: подбираем материал, организуем бригаду, считаем
+                  объем и закрываем работу до готового результата.
+                </p>
+                <p>
+                  У нас есть свои бригадиры, поэтому заказчику не нужно искать
+                  рабочих, контролировать каждый этап и отдельно договариваться
+                  по монтажу. Вы выбираете материал и желаемый внешний вид, а
+                  мы берем на себя фасадные работы.
+                </p>
+              </div>
+              <div class="stats" aria-label="Преимущества компании в цифрах">
+                <div class="stat">
+                  <strong>1</strong>
+                  <span>ответственный бригадир на объекте</span>
+                </div>
+                <div class="stat">
+                  <strong>3</strong>
+                  <span>варианта материала для расчета</span>
+                </div>
+                <div class="stat">
+                  <strong>100%</strong>
+                  <span>работы можно закрыть под ключ</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-photo" role="img" aria-label="Фасадные работы на доме"></div>
+          </div>
+        </section>
+
+        <section class="section why" id="why">
+          <div class="section-inner">
+            <div class="section-title">
+              <p class="eyebrow">Почему мы</p>
+              <h2>Тепло, ровная геометрия и понятная смета до старта</h2>
+              <p>
+                Мы объясняем стоимость заранее, не прячем дополнительные
+                расходы и можем включить строительные леса в общий расчет.
+              </p>
+            </div>
+
+            <div class="feature-grid">
+              <article class="feature">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3v18M6 8h12M7 15h10" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                </div>
+                <h3>Точный подход</h3>
+                <p>Считаем по квадратуре и материалу, чтобы клиент сразу видел ориентир бюджета.</p>
+              </article>
+
+              <article class="feature">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 20V8l7-4 7 4v12" stroke="currentColor" stroke-width="2" />
+                    <path d="M9 20v-7h6v7" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                </div>
+                <h3>Под ключ</h3>
+                <p>Материал, монтаж, отделка и организация бригады идут одной понятной услугой.</p>
+              </article>
+
+              <article class="feature">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2" />
+                    <path d="m7 7 10 10M17 7 7 17" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                </div>
+                <h3>Свои бригадиры</h3>
+                <p>На объекте есть ответственный человек, который ведет процесс и качество работ.</p>
+              </article>
+
+              <article class="feature">
+                <div class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21s7-4.5 7-11V5l-7-2-7 2v5c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="2" />
+                    <path d="m9 12 2 2 4-5" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                </div>
+                <h3>Практичный фасад</h3>
+                <p>Делаем не просто красиво, а с расчетом на тепло, защиту стен и долгий срок службы.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section calculator-band" id="calculator">
+          <div class="section-inner">
+            <div class="section-title">
+              <p class="eyebrow">Калькулятор</p>
+              <h2>Примерный расчет стоимости теплофасада</h2>
+              <p>
+                Введите квадратуру фасада, выберите материал и отметьте, нужно
+                ли включить строительные леса в стоимость.
+              </p>
+            </div>
+
+            <div class="calculator">
+              <form class="calc-panel" id="calcForm">
+                <div class="field">
+                  <label for="area">Площадь фасада, м²</label>
+                  <input id="area" name="area" type="number" min="1" step="1" value="120" />
+                </div>
+
+                <div class="field">
+                  <label for="material">Материал</label>
+                  <select id="material" name="material">
+                    <option value="econom">Пенопласт + штукатурка, от 14 000 тг/м²</option>
+                    <option value="standard" selected>Минвата + штукатурка, от 18 000 тг/м²</option>
+                    <option value="premium">Термопанели, от 24 000 тг/м²</option>
+                  </select>
+                </div>
+
+                <div class="option-group">
+                  <label class="checkbox-row" for="turnkey">
+                    <input id="turnkey" name="turnkey" type="checkbox" />
+                    <span>Нужно под ключ: +1 500 000 тг к примерной смете</span>
+                  </label>
+
+                  <label class="checkbox-row" for="scaffold">
+                    <input id="scaffold" name="scaffold" type="checkbox" />
+                    <span>Включить строительные леса в расчет: +50 000 тг</span>
+                  </label>
+                </div>
+
+                <a class="button" href="#contacts">Оставить заявку</a>
+              </form>
+
+              <aside class="result-panel" aria-live="polite">
+                <div class="result-total" id="total">0 тг</div>
+                <p class="result-note">
+                  Это предварительная сумма. Точный расчет зависит от высоты,
+                  состояния стен, углов, откосов и выбранной финишной отделки.
+                </p>
+
+                <ul class="breakdown">
+                  <li>
+                    <span>Площадь</span>
+                    <strong id="areaResult">120 м²</strong>
+                  </li>
+                  <li>
+                    <span>Материал и работы</span>
+                    <strong id="materialResult">0 тг</strong>
+                  </li>
+                  <li>
+                    <span>Строительные леса</span>
+                    <strong id="scaffoldResult">Не включены</strong>
+                  </li>
+                  <li>
+                    <span>Под ключ</span>
+                    <strong id="turnkeyResult">Не выбрано</strong>
+                  </li>
+                  <li>
+                    <span>Цена за м²</span>
+                    <strong id="priceResult">18 000 тг</strong>
+                  </li>
+                </ul>
+
+                <p class="result-note">
+                  Если леса есть у заказчика, их можно не включать. Если нужно
+                  закрыть вопрос полностью, добавляем их в смету.
+                </p>
+              </aside>
+            </div>
+
+            <div class="materials" aria-label="Материалы для теплофасада">
+              <div class="material">
+                <strong>Пенопласт + штукатурка</strong>
+                <span>Бюджетный вариант для теплого фасада и аккуратного внешнего вида.</span>
+              </div>
+              <div class="material">
+                <strong>Минвата + штукатурка</strong>
+                <span>Баланс теплоизоляции, паропроницаемости и надежности.</span>
+              </div>
+              <div class="material">
+                <strong>Термопанели</strong>
+                <span>Быстрый монтаж, выразительная фактура и готовый декоративный слой.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="process">
+          <div class="section-inner">
+            <div class="section-title">
+              <p class="eyebrow">Как работаем</p>
+              <h2>Берем фасад в работу от замера до сдачи</h2>
+            </div>
+
+            <div class="process">
+              <article class="step">
+                <b>01</b>
+                <h3>Замер</h3>
+                <p>Уточняем квадратуру, высоту, сложность фасада и пожелания по отделке.</p>
+              </article>
+              <article class="step">
+                <b>02</b>
+                <h3>Смета</h3>
+                <p>Подбираем материал и показываем понятный расчет без скрытых пунктов.</p>
+              </article>
+              <article class="step">
+                <b>03</b>
+                <h3>Бригада</h3>
+                <p>Назначаем бригадира и организуем монтажные работы на объекте.</p>
+              </article>
+              <article class="step">
+                <b>04</b>
+                <h3>Готовый фасад</h3>
+                <p>Сдаем утепленный фасад с финишной отделкой и чистым внешним видом.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section cta" id="contacts">
+          <div class="section-inner cta-row">
+            <div>
+              <h2>Хотите узнать стоимость своего фасада?</h2>
+              <p>
+                Напишите квадратуру, материал и город. Мы подготовим ориентир
+                по бюджету и подскажем, стоит ли включать строительные леса.
+              </p>
+            </div>
+            <a class="button" href="tel:+77000000000">Позвонить</a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <strong>ТеплоФасад</strong>
+          <span>Утепление и отделка фасадов под ключ</span>
+          <span>Телефон: +7 700 000 00 00</span>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const materialPrices = {
+        econom: {
+          label: "Пенопласт + штукатурка",
+          price: 14000,
+        },
+        standard: {
+          label: "Минвата + штукатурка",
+          price: 18000,
+        },
+        premium: {
+          label: "Термопанели",
+          price: 24000,
+        },
+      };
+
+      const scaffoldPrice = 50000;
+      const turnkeyPrice = 1500000;
+      const areaInput = document.querySelector("#area");
+      const materialSelect = document.querySelector("#material");
+      const turnkeyInput = document.querySelector("#turnkey");
+      const scaffoldInput = document.querySelector("#scaffold");
+      const totalNode = document.querySelector("#total");
+      const areaResult = document.querySelector("#areaResult");
+      const materialResult = document.querySelector("#materialResult");
+      const scaffoldResult = document.querySelector("#scaffoldResult");
+      const turnkeyResult = document.querySelector("#turnkeyResult");
+      const priceResult = document.querySelector("#priceResult");
+
+      const formatTenge = (value) =>
+        new Intl.NumberFormat("ru-KZ", {
+          style: "currency",
+          currency: "KZT",
+          maximumFractionDigits: 0,
+        }).format(value);
+
+      const calculate = () => {
+        const area = Math.max(Number(areaInput.value) || 0, 0);
+        const material = materialPrices[materialSelect.value];
+        const base = area * material.price;
+        const turnkey = turnkeyInput.checked ? turnkeyPrice : 0;
+        const scaffold = scaffoldInput.checked ? scaffoldPrice : 0;
+        const total = base + turnkey + scaffold;
+
+        totalNode.textContent = formatTenge(total);
+        areaResult.textContent = `${area} м²`;
+        materialResult.textContent = `${material.label}: ${formatTenge(base)}`;
+        scaffoldResult.textContent = scaffold ? formatTenge(scaffold) : "Не включены";
+        turnkeyResult.textContent = turnkey ? formatTenge(turnkey) : "Не выбрано";
+        priceResult.textContent = formatTenge(material.price);
+      };
+
+      areaInput.addEventListener("input", calculate);
+      materialSelect.addEventListener("change", calculate);
+      turnkeyInput.addEventListener("change", calculate);
+      scaffoldInput.addEventListener("change", calculate);
+      calculate();
+    </script>
+  </body>
+</html>
